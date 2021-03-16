@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  first_place_url: MyText
+  second_place_url: MyText
+  third_place_url: MyText
+  forth_place_url: MyText
+  fifth_place_url: MyText
+
+two:
+  user_id: 1
+  first_place_url: MyText
+  second_place_url: MyText
+  third_place_url: MyText
+  forth_place_url: MyText
+  fifth_place_url: MyText
