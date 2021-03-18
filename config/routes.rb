@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  get 'users/edit'
+  get 'users/update'
   devise_for :users
 
   devise_scope :user do
@@ -6,6 +10,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'homes#top'
-  resources :users, only: [:index, :create]
-  resources :items, only: [:new, :create]
+  resources :users
+  resources :items
 end
