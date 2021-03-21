@@ -4,18 +4,12 @@
       <h4 class="text-dark bg-light py-4 mb-0"><strong><%= @user.name %>さんのプロフィール</strong></h4>
       <div class="p-4 bg-light">
         <div>
-          <%= attachment_image_tag(@user, :profile_image_id, size: "100x100", fallback: "no_image.png") %>
+          <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.png") %>
         </div>
         <%= @user.name %>
         <%= @user.introduction %>
-        <% if @user.name != 'ゲスト' %>
-          <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-block btn-primary mt-5" %>
-        <% else %>
-        <% end %>
-        <% if @user.name != 'ゲスト' %>
-          <%= link_to "投稿する", new_item_path, class:"btn btn-block btn-primary mt-5" %>
-        <% else %>
-        <% end %>
+        <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-block btn-primary mt-5" %>
+        <%= link_to "投稿する", new_item_path, class:"btn btn-block btn-primary mt-5" %>
       </div>
     </div>
   </div>
