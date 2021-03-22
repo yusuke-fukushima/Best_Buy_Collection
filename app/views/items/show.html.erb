@@ -1,4 +1,13 @@
-<%= @item.name %>
-<%= @item.introduction %>
-<%= @item.item_url %>
-<%= @item.purchase_time %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-5 mx-auto text-center shadow-lg rounded px-0 my-5">
+      <h4 class="text-dark bg-light p-4 mb-0"><strong>投稿詳細</strong></h4>
+      <div class="form-body p-4 bg-light">
+        <%= @item.purchase_time.strftime("%-m月") %>
+        <%= @item.name %>
+        <%= @item.introduction %>
+        <%= Rinku.auto_link(@item.item_url, :all, 'target="_blank"').html_safe %>
+      </div>
+    </div>
+  </div>
+</div>
