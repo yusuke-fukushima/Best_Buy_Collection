@@ -6,8 +6,12 @@
         <div>
           <%= attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.png") %>
         </div>
-        <%= @user.name %>
-        <%= @user.introduction %>
+        <div>
+          <%= @user.name %>
+        </div>
+        <div>
+          <%= @user.introduction %>
+        </div>
         <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-block btn-primary mt-5" %>
         <%= link_to "投稿する", new_item_path, class:"btn btn-block btn-primary mt-5" %>
       </div>
