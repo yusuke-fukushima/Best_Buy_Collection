@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
 
   root to: 'homes#top'
-  resources :users
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+  end
   resources :items do
     resource :favorites, only: [:create, :destroy]
   end
