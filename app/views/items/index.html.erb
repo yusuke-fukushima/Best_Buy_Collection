@@ -47,8 +47,12 @@
                 </div>
               </div>
             </div>
+            <%= link_to "コメントする", new_item_item_comment_path(item), class:"btn btn-block btn-success" %>
           </div>
           <hr>
+          <% item.item_comments.each do |item_comment| %>
+            <p><%= item_comment.comment %></p>
+          <% end %>
         <% end %>
       </div>
     </div>

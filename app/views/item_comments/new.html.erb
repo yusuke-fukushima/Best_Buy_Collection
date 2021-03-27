@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-5 mx-auto text-center shadow-lg rounded px-0 my-5">
+      <h4 class="text-dark bg-light p-4 mb-0"><strong>コメントする</strong></h4>
+      <div class="form-body p-4 bg-light">
+        <%= form_with model:@itemcomment, url: item_item_comments_path, local:true do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="input-group mb-3">
+          <%= f.text_area :comment, size: "1x4", class:"form-control", placeholder:"商品コメント" %>
+        </div>
+          <%= f.submit "投稿する", class:"btn btn-block btn-success mt-5" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
