@@ -4,6 +4,8 @@
       <h4 class="text-dark bg-light p-4 mb-0"><strong>投稿一覧</strong></h4>
       <div class="form-body p-4 bg-light">
         <%= link_to "投稿する", new_item_path, class:"btn btn-block btn-success" %>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModal">投稿する</button>
         <hr>
         <% @items.each do |item| %>
           <div>
@@ -60,6 +62,44 @@
           <hr>
         <% end %>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"><strong>投稿画面</strong></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with model:@item, url: items_path, remote:true do |f| %>
+        <div class="modal-body">
+          <div class="input-group mb-3 mt-4">
+            <%= f.date_select :purchase_time, {:discard_day => true, :discard_year => true} %>
+          </div>
+          <div class="input-group mb-3 mt-4">
+            <%= f.attachment_field :item_image, placeholder: "商品画像" %>
+          </div>
+          <div class="input-group mb-3 mt-4">
+            <%= f.text_field :name, size: "1x3", class:"form-control", placeholder:"商品名" %>
+          </div>
+          <div class="input-group mb-3 mt-4">
+            <%= f.text_area :introduction, size: "1x3", class:"form-control", placeholder:"商品説明" %>
+          </div>
+          <div class="input-group mb-3 mt-4">
+            <%= f.text_area :item_url, size: "1x3", class:"form-control", placeholder:"商品URL" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "投稿する", class:"btn btn-block btn-success mt-5" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
