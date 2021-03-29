@@ -3,70 +3,15 @@
     <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 mx-auto text-center shadow-lg rounded px-0 my-5">
       <h4 class="text-dark bg-light p-4 mb-0"><strong>投稿一覧</strong></h4>
       <div class="form-body p-4 bg-light">
-        <%= link_to "投稿する", new_item_path, class:"btn btn-block btn-success" %>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#exampleModal">投稿する</button>
-        <hr>
-        <% @items.each do |item| %>
-          <div>
-            <div class="container">
-              <div class="row no-gutters">
-                <div class="col-4">
-                  <%= link_to user_path(item.user), :style=>"color:black;" do %>
-                    <div>
-                      <%= attachment_image_tag(item.user, :profile_image, size: "50x50", fallback: "no_image.png") %>
-                    </div>
-                    <div class="mt-3">
-                      <%= item.user.name %>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="col-8">
-                  <%= link_to item_path(item), :style=>"color:black;" do %>
-                    <div>
-                      <%= attachment_image_tag(item.user, :profile_image, size: "200x200", fallback: "no_image.png") %>
-                    </div>
-                    <div  class="mt-3">
-                      <%= item.purchase_time.strftime("%-m月") %>
-                      <%= item.name %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <div class="container mt-3">
-              <div class="row no-gutters">
-                <div class="col-8">
-                </div>
-                <div class="col-2">
-                  <% if current_user.already_favorited?(item) %>
-                    <%= link_to item_favorites_path(item), method: :delete do %>
-                      <i class="fas fa-heart text-danger"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to item_favorites_path(item), method: :post do %>
-                      <i class="far fa-heart text-danger"></i>
-                    <% end %>
-                  <% end %>
-                  <%= item.favorites.count %>
-                </div>
-                <div class="col-2">
-                  <%= link_to new_item_item_comment_path(item) do %>
-                    <i class="far fa-comment text-dark"></i>
-                  <% end %>
-                  <%= item.item_comments.count %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-        <% end %>
+        <div class="items">
+          <%= render 'index', items: @items %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -8,11 +8,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def new
-    @item = Item.new
-  end
-
   def create
+    @items = Item.all
     @item = current_user.items.new(item_params)
     if @item.save
       redirect_to items_path
