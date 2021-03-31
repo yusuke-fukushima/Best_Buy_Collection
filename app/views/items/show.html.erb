@@ -23,16 +23,7 @@
             <div class="col-8">
             </div>
             <div class="col-2">
-              <% if current_user.already_favorited?(@item) %>
-                <%= link_to item_favorites_path(@item), method: :delete do %>
-                  <i class="fas fa-heart text-danger"></i>
-                <% end %>
-              <% else %>
-                <%= link_to item_favorites_path(@item), method: :post do %>
-                  <i class="far fa-heart text-danger"></i>
-                <% end %>
-              <% end %>
-              <%= @item.favorites.count %>
+              <%= render partial: 'favorites/favorite', locals: { item: @item} %>
             </div>
             <div class="col-2">
               <%= link_to new_item_item_comment_path(@item) do %>
