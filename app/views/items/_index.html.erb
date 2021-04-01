@@ -16,7 +16,7 @@
         <div class="col-8">
           <%= link_to item_path(item), :style=>"color:black;" do %>
             <div>
-              <%= attachment_image_tag(item.user, :profile_image, size: "200x200", fallback: "no_image.png") %>
+              <%= attachment_image_tag(item, :item_image, size: "200x200", fallback: "no_image.png") %>
             </div>
             <div  class="mt-3">
               <%= item.purchase_time.strftime("%-m月") %>
