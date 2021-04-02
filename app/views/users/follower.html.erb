@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mx-auto text-center shadow-lg px-0 my-5">
+      <h4 class="text-light bg-info py-4 mb-0"><strong><%= @user.name %>さんのフォロワー一覧</strong></h4>
+      <div class="p-4 bg-light">
+        <% @follower.each do |user| %>
+          <%= link_to user, class: "user_#{user.id}", :style=>"color:black;" do %>
+            <div class="container">
+              <div class="row no-gutters">
+               <div class="col-4">
+                  <div>
+                    <%= attachment_image_tag(user, :profile_image, size: "50x50", fallback: "no_image.png") %>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <p><%= user.name %></p>
+                  <p><%= user.introduction %></p>
+                </div>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'homes#top'
+  get 'user/:id/follow' => 'users#follow', as: "user_follow"
+  get 'user/:id/follower' => 'users#follower', as: "user_follower"
   resources :users do
     resource :relationships, only: [:create, :destroy]
   end
