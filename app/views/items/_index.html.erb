@@ -1,9 +1,8 @@
-<hr>
 <% @items.each do |item| %>
-  <div>
+  <div class="card mt-3">
     <div class="container">
       <div class="row no-gutters">
-        <div class="col-4">
+        <div class="col-4 mt-3">
           <%= link_to user_path(item.user), :style=>"color:black;" do %>
             <div>
               <%= attachment_image_tag(item.user, :profile_image, size: "50x50", fallback: "no_image.png") %>
@@ -13,7 +12,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-8">
+        <div class="col-8 mt-3">
           <%= link_to item_path(item), :style=>"color:black;" do %>
             <div>
               <%= attachment_image_tag(item, :item_image, size: "200x200", fallback: "no_image.png") %>
@@ -26,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="container mt-3">
+    <div class="container mt-3 mb-3">
       <div class="row no-gutters">
         <div class="col-8">
         </div>
@@ -45,5 +44,4 @@
       </div>
     </div>
   </div>
-  <hr>
 <% end %>
